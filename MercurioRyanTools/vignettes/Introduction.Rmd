@@ -1,0 +1,46 @@
+---
+title: "plottr function in MercurioRyanTools"
+author: "Ryan Mercurio"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+##Examples for plottr(dataset,...)
+
+plottr plots the first two columns of a dataframe, with the first column as x and the second as y. The ... argument is passed to geom.point(...) so that color,size, etc. of the data may be changed (I would advise against choosing yellow).
+
+
+
+```{r, fig.show='hold'}
+library("MercurioRyanTools")
+library("tidyverse")
+plottr(data1)
+
+data3 <- 1:30
+data4 <- data.frame(data3, data2)
+plottr(data4)
+plottr(data1, col="yellow", size = 10)
+```
+
+
+
+## Data Tables
+
+
+```{r, echo=FALSE, results='asis'}
+knitr::kable(data1)
+knitr::kable(data4)
+```
+
+

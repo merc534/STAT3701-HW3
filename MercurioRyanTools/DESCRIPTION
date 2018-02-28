@@ -1,0 +1,16 @@
+Package: MercurioRyanTools
+Title: MercurioRyanTools Package for STAT 3701
+Version: 0.0.0.9000
+Authors@R: person("Ryan", "Mercurio", email = "mercu023@umn.edu", role= c("aut", "cre"))
+Description: Package for Homework 3 in STAT 3701.
+Depends: R (>= 3.4.3)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Imports: dplyr,
+    ggplot2
+Suggests: testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
