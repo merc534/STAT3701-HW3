@@ -1,7 +1,7 @@
 ---
-title: "plottr function in MercurioRyanTools"
+title: "Vignette for MercurioRyanTools"
 author: "Ryan Mercurio"
-date: "`r Sys.Date()`"
+date: "'3.7.2018"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Vignette Title}
@@ -16,31 +16,98 @@ knitr::opts_chunk$set(
 )
 ```
 
-##Examples for plottr(dataset,...)
+
+
+This package is my submission for Homework 3 in STAT 3701.
+
+Included in this package are all the functions I have written for class quizzes and homeworks so far.
+I have omitted redundant functions (e.g. non-GIEMO functions that had GIEMO equivalents).
+
+The first three functions (plottr, filtr, and mylogl) were included in the package submitted for Quiz 2. I have left them in with minimal revision.
+
+Below I briefly demonstrate each function and each attached dataset.
+
+\
+\
+\
+\
+\
+\/
+
+#Package Functions
+
+
+
+##plottr(dataset,...)
 
 plottr plots the first two columns of a dataframe, with the first column as x and the second as y. The ... argument is passed to geom.point(...) so that color,size, etc. of the data may be changed (I would advise against choosing yellow).
 
 
 
-```{r, fig.show='hold'}
+```{r, warning=F}
 library("MercurioRyanTools")
-library("tidyverse")
+library(dplyr)
 plottr(data1)
 
-data3 <- 1:30
-data4 <- data.frame(data3, data2)
-plottr(data4)
-plottr(data1, col="yellow", size = 10)
+x <- data2
+y <- 1:30
+plotdata <- data.frame(y, x)
+plottr(plotdata)
+plottr(plotdata, col="yellow", size = 10)
+
 ```
 
 
 
-## Data Tables
+##filtr(dataset, col, ...)
+##mylogl(x, func, interval)
+##myapply(X, MARGIN, FUN,...)
+##meanvarsd(d)
+##%matlc%
+##mstandardize(M)
 
 
+\
+\
+\
+\
+\
+\
+\
+\/
+
+
+
+#Package Data
+
+Attached data comes from Charlie's 3701 web files. 
+
+##data1
+
+Discrete probability distribution. Two columns: x and p.
 ```{r, echo=FALSE, results='asis'}
-knitr::kable(data1)
-knitr::kable(data4)
+knitr::kable(head(data1))
+```
+
+##data2
+
+Data vector of length 30. Follows cauchy distribution.
+```{r, echo=F}
+knitr::kable(head(data2))
+```
+
+##data3
+
+6x4 matrix.
+```{r, echo=F}
+knitr::kable(head(data3))
+```
+
+##data4
+
+List with two items. data4[[1]] is a 3x3 matrix. data4[[2]] (apparently called 'x') is a numerical vector of length 3.
+```{r, echo=F}
+knitr::kable(head(data4))
 ```
 
 
