@@ -2,8 +2,8 @@
 
 export("%matcalc%")
 export(filtr)
-export(func2)
 export(meanvarsd)
+export(mstandardize)
 export(myapply)
 export(mylogl)
 export(plottr)

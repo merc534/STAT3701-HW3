@@ -9,13 +9,13 @@
 #' @export
 #' @examples
 #' 
-#' func2(data3)
+#' mstandardize(data3)
 #'
 
 
 
 
-func2 <- function (M){
+mstandardize <- function (M){
   
   standardize <- function(x){(x - mean(x)) / sd(x)}
   
