@@ -1,6 +1,6 @@
 
-  context("Finding MLE")
-  test_that("mylogl works on cauchy distribution",{
+  context("mylogl")
+  test_that("works for data2",{
 
 theta <- pi             
 

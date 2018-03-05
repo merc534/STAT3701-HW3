@@ -1,4 +1,4 @@
-#' Calculator for  X^T A^{-1} X
+#'Matrix Calculator for X^T A^{-1} X
 #'
 #' Working on a matrix, A, and a numerical vector X, performs the calculation in the title line. 
 #' 
@@ -12,8 +12,8 @@
 #' @export
 #' @examples
 #' 
-#' attach(data4)
-#' a `%matcalc%` x
+#' 
+#' data4[[1]] `%matcalc%` data4[[2]]
 
 
 `%matcalc%` <- function(A, X){

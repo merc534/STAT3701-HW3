@@ -1,5 +1,5 @@
 
-context("Making a Scatterplot")
+context("plottr")
 test_that("plottr works on data frames and imported data ",{
  
           
