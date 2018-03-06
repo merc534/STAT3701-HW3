@@ -60,13 +60,116 @@ plottr(plotdata, col="yellow", size = 10)
 
 
 ##filtr(dataset, col, ...)
+
+  filtr will return a specific column from a given dataset. This is really just a wrapper for dplyr::select(). Can call by column number or by column name.
+  
+```{r}
+ 
+  
+  a <- c(4,5,-14)
+  b <- rnorm(3)
+  
+  c <- data.frame(a,b)
+
+  filtr(c,col = 1)
+  
+  all.equal(filtr(c, col = 'b'), filtr(c, col = 2))
+```
+
 ##mylogl(x, func, interval)
+
+  This function takes a numerical vector $x$, an approximate distribution $func$ and estimates the maximum log-likelihood estimator on a specified range $interval$. 
+  
+  $func$ is a user-defined function of form $function(theta,x)$ where $theta$ is a parameter and $x$ is the numerical vector.
+ 
+###Example functions for argument "fun":
+
+```{r}
+f1 <- function(theta,x)
+    {dgamma(x, shape = theta, log = TRUE)}
+
+f2 <- function(theta,x)
+    {dcauchy(x, location = theta, log = TRUE)}
+
+f3 <- function(theta,x)
+    {dbinom(x, 20, prob = 1 / (1 + exp(- theta)), log = TRUE)}
+```
+###Calling mylogl()
+```{r}
+
+#Gamma
+mylogl (x = rgamma(20,shape = 1), f1, interval = c(0.1,10))
+#Cauchy
+mylogl (x = rcauchy(20, loc = 5), f2, interval = c(-10,10))
+#Binomial
+mylogl (x = rbinom(n = 20,size = 20, prob = .80), f3, interval = c(-10,10))
+
+
+
+```
 ##myapply(X, MARGIN, FUN,...)
+
+  This function works like $apply()$, but is more limited, since the 'MARGIN' argument must be equal to 1 or 2.
+  
+  myapply applies a user-supplied function 'FUN' to either all rows ('MARGIN = 1') or all columns ('MARGIN = 2') of some object 'X' 
+
+
+```{r}
+app1 <- data.frame(1:30,2:31)
+myapply(app1, 1, sum)
+myapply(app1, 2, sum)
+
+
+
+myapply(app1, 2, function (x)mylogl(x=x,func = f1, interval = c(0.1,30)))
+
+```
 ##meanvarsd(d)
+
+Finds the mean, variance, and standard deviation of a discrete probability distribution 'd'.  
+d\$x should list values with corresponding weights listed in d\$p.
+
+The weights in d\$p must sum to 1.
+
+Returns mean, variance, and standard deviation in that order as a vector of length 3. Works only on data frames
+```{r}
+x <- 1:4
+p <- c(.1,.2,.3,.4)
+dist1 <- data.frame(x,p)
+
+meanvarsd(dist1)
+
+```
 ##%matlc%
+A novelty matrix calculator for the expression $X^T A^{-1} X$
+
+Where the transpose of $X$ is multiplicable by the inverse of $A$.
+
+Here we have a candidate for $A$:
+```{r}
+data4[[1]]
+```
+
+And a candidate vector for $X$:
+```{r}
+data4[[2]]
+```
+The function is used like so:
+```{r}
+data4[[1]] %matcalc% data4[[2]]
+```
+
 ##mstandardize(M)
-
-
+  This simple function standardizes the columns of a matrix in relation to the column's mean and standard deviation.
+  
+  This should work for any matrix so long as no column has a standard deviation of 0.
+```{r}
+data3
+```
+  This matrix should provide a sufficient example.
+```{r}
+round(mstandardize(data3), digits = 2)
+```
 \
 \
 \
