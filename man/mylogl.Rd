@@ -31,5 +31,6 @@ function(theta,x)
  dbinom(x, 20, prob = 1 / (1 + exp(- theta)), log = TRUE)
 }
 \examples{
-mylogl(x = data2, func = dcauchy(x, location = theta, log = TRUE), interval = c(0,100))
+fgam <- function(theta,x) dgamma(x, shape = theta, log = TRUE)
+mylogl(x = data2, func = fgam, interval = c(0,100))
 }

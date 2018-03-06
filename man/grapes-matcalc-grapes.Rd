@@ -20,5 +20,5 @@ Working on a matrix, A, and a numerical vector X, performs the calculation in th
 \examples{
 
 
-data4[[1]] `\%matcalc\%` data4[[2]]
+data4[[1]] \\\%matcalc\\\% data4[[2]]
 }

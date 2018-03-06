@@ -16,5 +16,11 @@ vector of length 3 (mean, var, sd)
 Given a discrete random variable distribution, return the mean, variance and standard deviation.
 }
 \examples{
-meanvarsd((rnorm(10)))
+
+x <- c(1,5,6)
+p <- c(.2,.2,.6)
+v <- data.frame (x,p)
+meanvarsd(v)
+
+
 }

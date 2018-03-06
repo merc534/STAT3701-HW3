@@ -13,7 +13,7 @@
 #' @examples
 #' 
 #' 
-#' data4[[1]] `%matcalc%` data4[[2]]
+#' data4[[1]] \%matcalc\% data4[[2]]
 
 
 `%matcalc%` <- function(A, X){

@@ -14,7 +14,13 @@
 #'
 #'
 #' @examples 
-#' meanvarsd((rnorm(10)))
+#' 
+#' x <- c(1,5,6)
+#' p <- c(.2,.2,.6)
+#' v <- data.frame (x,p)
+#' meanvarsd(v)
+#' 
+#' 
 
 
 

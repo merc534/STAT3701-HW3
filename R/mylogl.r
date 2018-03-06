@@ -19,7 +19,8 @@
 #'@return The maximum likelihood estimator for the function: one numeric value
 #'@export
 #'@examples
-#'mylogl(x = data2, func = dcauchy(x, location = theta, log = TRUE), interval = c(0,100))
+#'fgam <- function(theta,x) dgamma(x, shape = theta, log = TRUE)
+#'mylogl(x = data2, func = fgam, interval = c(0,100))
 
 
 mylogl <- function (x, func, interval)
